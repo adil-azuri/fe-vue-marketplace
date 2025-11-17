@@ -4,15 +4,15 @@ import { useRoute, RouterLink } from "vue-router";
 
 // ICONS (lucide-vue-next)
 import {
+  LogOut,
   ChevronLeft,
   ChevronRight,
-  LogOut,
+  Home,
   LayoutGrid,
-  MessageSquare,
-  Calendar,
-  Bell,
   Package,
-  Phone,
+  ShoppingCart,
+  ShoppingBag,
+  UserSquare,
 } from "lucide-vue-next";
 
 // Emit ke parent agar router content bisa kasih margin kiri
@@ -35,12 +35,11 @@ const handleLogout = () => {
 
 // Menu items
 const menuItems = [
-  { name: "Home", icon: LayoutGrid, href: "/" },
+  { name: "Home", icon: Home, href: "/" },
+  { name: "My Profile", icon: UserSquare, href: "myprofile" },
   { name: "Products", icon: Package, href: "/products" },
-  { name: "Walk In queue", icon: MessageSquare, href: "#" },
-  { name: "Appointments", icon: Calendar, href: "#" },
-  { name: "Notifications", icon: Bell, href: "#" },
-  { name: "Services", icon: Phone, href: "#" },
+  { name: "My Cart", icon: ShoppingCart, href: "/mycart" },
+  { name: "My Order", icon: ShoppingBag, href: "/myorders" },
 ];
 </script>
 
@@ -78,7 +77,7 @@ const menuItems = [
             </div>
 
             <span v-if="!minimized" class="text-xl font-semibold text-gray-800">
-              MarkHub
+              User
             </span>
           </div>
         </div>

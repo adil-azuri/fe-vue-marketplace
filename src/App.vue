@@ -13,7 +13,7 @@ const minimized = ref(false);
     <!-- Content -->
     <div
       :class="[
-        'flex-1 p-6 overflow-y-auto transition-all duration-300',
+        'flex-1 overflow-y-auto transition-all duration-300',
         minimized ? 'ml-16' : 'ml-60',
       ]"
     >
