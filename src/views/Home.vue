@@ -23,7 +23,7 @@ onMounted(async () => {
 
 <template>
   <!-- SEARCH BAR -->
-  <div class="p-3">
+  <div class="m-2 p-4 mb-3 shadow-xl rounded-2xl">
     <h1 class="text-2xl font-bold text-amber-600 mb-2">Welcome to My Store</h1>
     <div class="flex w-full justify-between pr-10">
       <div
@@ -64,7 +64,7 @@ onMounted(async () => {
     <SwiperSlide
       v-for="item in sliderProducts"
       :key="item.id"
-      class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100"
+      class="bg-white rounded-2xl shadow-lg overflow-hidden"
     >
       <!-- IMAGE -->
       <img
@@ -105,28 +105,43 @@ onMounted(async () => {
   </Swiper>
 
   <!-- GRID PRODUK -->
-  <div class="p-4">
+  <div class="p-3">
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
       <div
         v-for="item in products"
         :key="item.id"
-        class="bg-white shadow rounded-xl p-3 hover:shadow-lg transition cursor-pointer"
+        class="bg-white shadow-2xl rounded-xl p-3 hover:shadow-lg transition cursor-pointer"
       >
         <img
           :src="`http://127.0.0.1:8000/storage/${item.photo_product}`"
           class="w-full h-40 object-contain rounded-lg"
         />
 
-        <h3 class="mt-2 text-sm font-medium line-clamp-2">
-          {{ item.name }}
-        </h3>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800 line-clamp-2">
+            {{ item.name }}
+          </h3>
 
-        <p class="text-green-600 font-bold mt-1">
-          Rp{{ item.price.toLocaleString() }}
-        </p>
+          <p class="text-green-600 font-bold mt-1">
+            Rp{{ item.price.toLocaleString() }}
+          </p>
 
-        <div class="flex items-center text-black text-sm">
-          Only {{ item.stock }} left
+          <p class="text-gray-500 text-sm">Only {{ item.stock }} left</p>
+        </div>
+
+        <div class="flex justify-between gap-1 mt-3">
+          <button
+            class="flex items-center text-sm bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all px-2 py-2 w-1/2 justify-center whitespace-nowrap"
+          >
+            <ShoppingCart class="w-4 h-4 mr-1" />
+            <span>Add to cart</span>
+          </button>
+          <button
+            class="flex items-center border-2 border-blue-500 hover:border-blue-400 text-blue-500 hover:text-blue-400 text-sm px-2 py-2 rounded-lg transition-all w-1/2 justify-center whitespace-nowrap"
+          >
+            <Search class="w-4 h-4 mr-1" />
+            <span>Detail</span>
+          </button>
         </div>
       </div>
     </div>
