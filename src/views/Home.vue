@@ -94,10 +94,10 @@ onMounted(async () => {
             Add to Cart
           </button>
           <button
-            class="flex items-center border-2 border-blue-500 hover:border-blue-400 text-black px-4 py-2 rounded-full transition-all"
+            class="flex items-center border-2 border-blue-500 text-blue-500 hover:border-blue-400 px-4 py-2 rounded-full transition-all"
           >
             <Search class="w-4 h-4" />
-            <span class="px-2">Detail</span>
+            <span class="px-2 text-blue-400">Detail</span>
           </button>
         </div>
       </div>
@@ -110,7 +110,7 @@ onMounted(async () => {
       <div
         v-for="item in products"
         :key="item.id"
-        class="bg-white shadow-2xl rounded-xl p-3 hover:shadow-lg transition cursor-pointer"
+        class="bg-white shadow-2xl rounded-xl p-3 hover:shadow-lg transition"
       >
         <img
           :src="`http://127.0.0.1:8000/storage/${item.photo_product}`"
@@ -131,13 +131,13 @@ onMounted(async () => {
 
         <div class="flex justify-between gap-1 mt-3">
           <button
-            class="flex items-center text-sm bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all px-2 py-2 w-1/2 justify-center whitespace-nowrap"
+            class="flex items-center text-sm bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all px-2 py-2 w-1/2 justify-center whitespace-nowrap cursor-pointer"
           >
             <ShoppingCart class="w-4 h-4 mr-1" />
             <span>Add to cart</span>
           </button>
           <button
-            class="flex items-center border-2 border-blue-500 hover:border-blue-400 text-blue-500 hover:text-blue-400 text-sm px-2 py-2 rounded-lg transition-all w-1/2 justify-center whitespace-nowrap"
+            class="flex items-center border-2 border-blue-500 hover:border-blue-400 text-blue-500 hover:text-blue-400 text-sm px-2 py-2 rounded-lg transition-all w-1/2 justify-center whitespace-nowrap cursor-pointer"
           >
             <Search class="w-4 h-4 mr-1" />
             <span>Detail</span>
