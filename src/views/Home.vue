@@ -1,25 +1,15 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { RouterLink } from "vue-router";
+import { Search, ShoppingCart } from "lucide-vue-next";
 
-// Swiper
+// Import Swiper
 import "swiper/swiper-bundle.css";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-import { getProducts } from "../services/productServices";
-import { Search, ShoppingCart } from "lucide-vue-next";
-import { RouterLink } from "vue-router";
-
-const products = ref<any[]>([]);
-const sliderProducts = ref<any[]>([]);
-
-onMounted(async () => {
-  const res = await getProducts();
-
-  products.value = res.data.data.data;
-
-  sliderProducts.value = products.value.slice(0, 5);
-});
+//Custom Hooks
+import { useProducts } from "../CustomHooks/useProducts";
+const { products, sliderProducts, loading, error } = useProducts(5);
 </script>
 
 <template>
