@@ -8,6 +8,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import { getProducts } from "../services/productServices";
 import { Search, ShoppingCart } from "lucide-vue-next";
+import { RouterLink } from "vue-router";
 
 const products = ref<any[]>([]);
 const sliderProducts = ref<any[]>([]);
@@ -37,14 +38,18 @@ onMounted(async () => {
         />
       </div>
       <div class="space-x-3">
-        <button
+        <RouterLink
+          to="/login"
           class="border-2 border-amber-600 rounded-2xl px-3 py-1 font-bold text-black"
         >
           Login
-        </button>
-        <button class="bg-amber-600 rounded-2xl px-3 py-1 font-bold text-white">
+        </RouterLink>
+        <RouterLink
+          to="/register"
+          class="bg-amber-600 rounded-2xl px-3 py-1 font-bold text-white"
+        >
           Register
-        </button>
+        </RouterLink>
       </div>
     </div>
   </div>
