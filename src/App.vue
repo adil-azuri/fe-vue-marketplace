@@ -1,20 +1,26 @@
 <script setup>
 import Sidebar from "./components/Sidebar.vue";
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useRoute } from "vue-router";
 
+const route = useRoute();
 const minimized = ref(false);
+
+const showSidebar = computed(
+  () => route.path !== "/login" && route.path !== "/register"
+);
 </script>
 
 <template>
   <div class="flex h-screen overflow-hidden">
     <!-- Sidebar -->
-    <Sidebar @toggle="minimized = $event" />
+    <Sidebar v-if="showSidebar" @toggle="minimized = $event" />
 
     <!-- Content -->
     <div
       :class="[
         'flex-1 overflow-y-auto transition-all duration-300',
-        minimized ? 'ml-16' : 'ml-60',
+        showSidebar ? (minimized ? 'ml-16' : 'ml-60') : 'ml-0',
       ]"
     >
       <router-view />
