@@ -93,16 +93,16 @@ onMounted(async () => {
         <!-- BUTTON ADD TO CART -->
         <div class="flex flex-col items-end space-y-3">
           <button
-            class="flex items-center bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full transition-all"
+            class="flex items-center bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full transition-all cursor-pointer"
           >
-            <ShoppingCart class="w-4 h-4" />
+            <ShoppingCart class="w-5 h-4" />
             Add to Cart
           </button>
           <button
-            class="flex items-center border-2 border-blue-500 text-blue-500 hover:border-blue-400 px-4 py-2 rounded-full transition-all"
+            class="flex items-center border-2 border-amber-500 text-amber-500 px-4 py-2 rounded-full transition-all cursor-pointer hover:font-bold"
           >
-            <Search class="w-4 h-4" />
-            <span class="px-2 text-blue-400">Detail</span>
+            <Search class="w-5 h-4" />
+            <span class="px-2">Detail</span>
           </button>
         </div>
       </div>
@@ -136,13 +136,13 @@ onMounted(async () => {
 
         <div class="flex justify-between gap-1 mt-3">
           <button
-            class="flex items-center text-sm bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all px-2 py-2 w-1/2 justify-center whitespace-nowrap cursor-pointer"
+            class="flex items-center text-sm bg-amber-600 hover:bg-amber-700 hover:font-bold text-white rounded-lg transition-all px-2 py-2 w-1/2 justify-center whitespace-nowrap cursor-pointer"
           >
             <ShoppingCart class="w-4 h-4 mr-1" />
             <span>Add to cart</span>
           </button>
           <button
-            class="flex items-center border-2 border-blue-500 hover:border-blue-400 text-blue-500 hover:text-blue-400 text-sm px-2 py-2 rounded-lg transition-all w-1/2 justify-center whitespace-nowrap cursor-pointer"
+            class="flex items-center border-2 border-amber-500 hover:border-amber-400 text-amber-500 hover:font-bold text-sm px-2 py-2 rounded-lg transition-all w-1/2 justify-center whitespace-nowrap cursor-pointer"
           >
             <Search class="w-4 h-4 mr-1" />
             <span>Detail</span>
