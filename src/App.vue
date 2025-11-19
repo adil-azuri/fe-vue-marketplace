@@ -21,7 +21,7 @@ const showSidebar = computed(
     <div
       :class="[
         'flex-1 overflow-y-auto transition-all duration-300',
-        showSidebar ? (minimized ? 'ml-16' : 'ml-60') : 'ml-0',
+        showSidebar ? (minimized ? 'md:ml-16 ml-0' : 'md:ml-60 ml-0') : 'ml-0',
       ]"
     >
       <router-view />

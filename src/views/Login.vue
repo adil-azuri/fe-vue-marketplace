@@ -1,11 +1,16 @@
 <script setup>
 import { reactive } from "vue";
+import { RouterLink, useRoute, useRouter } from "vue-router";
+import { useToast } from "vue-toast-notification";
+
+//external import
 import shopAnimation from "../assets/lottie/Shopping.json";
 import LottieAnimation from "../components/LottieAnimation.vue";
-import { RouterLink, useRouter } from "vue-router";
 import { useLogin } from "../CustomHooks/useAuth";
 
 const { loading, error, login } = useLogin();
+const toast = useToast();
+const route = useRoute();
 const router = useRouter();
 
 const form = reactive({
@@ -18,7 +23,14 @@ const onSubmit = async () => {
   const ok = await login(form.username, form.password);
 
   if (ok) {
-    router.push("/products");
+    toast.success("Login berhasil! Selamat datang 👋", {
+      position: "top",
+    });
+    router.push(route.query.redirect || "/products");
+  } else {
+    toast.error("Email atau password salah!", {
+      position: "top-right",
+    });
   }
 };
 </script>
