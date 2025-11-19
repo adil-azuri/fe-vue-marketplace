@@ -32,7 +32,7 @@ const onSubmit = () => {
       <div
         class="w-full max-w-md bg-white md:bg-transparent rounded-lg p-6 md:p-0"
       >
-        <h1 class="text-4xl font-bold mb-6">Welcome to My Store!</h1>
+        <h1 class="text-4xl font-bold mb-6">Welcome to ZuriStore!</h1>
 
         <form @submit.prevent="onSubmit" class="space-y-4">
           <!-- Email -->
