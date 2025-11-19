@@ -7,7 +7,8 @@ const route = useRoute();
 const minimized = ref(false);
 
 const showSidebar = computed(
-  () => route.path !== "/login" && route.path !== "/register"
+  () =>
+    route.path !== "/login" && route.path !== "/register" && route.path !== "/"
 );
 </script>
 

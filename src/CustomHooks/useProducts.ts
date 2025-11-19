@@ -1,5 +1,5 @@
 import { ref, onMounted } from "vue";
-import { getProducts } from "../services/productServices";
+import api from "../services/api";
 
 export function useProducts(limit: number | null = null) {
   const products = ref<any[]>([]);
@@ -12,7 +12,7 @@ export function useProducts(limit: number | null = null) {
     error.value = null;
 
     try {
-      const res = await getProducts();
+      const res = await api.get("/products");
       products.value = res.data.data.data;
 
       if (limit) {

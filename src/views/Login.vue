@@ -2,7 +2,11 @@
 import { reactive } from "vue";
 import shopAnimation from "../assets/lottie/Shopping.json";
 import LottieAnimation from "../components/LottieAnimation.vue";
-import { RouterLink } from "vue-router";
+import { RouterLink, useRouter } from "vue-router";
+import { useLogin } from "../CustomHooks/useAuth";
+
+const { loading, error, login } = useLogin();
+const router = useRouter();
 
 const form = reactive({
   username: "",
@@ -10,9 +14,12 @@ const form = reactive({
   remember: true,
 });
 
-const onSubmit = () => {
-  console.log("Form submitted:", form);
-  alert("Login submitted! Check console for data.");
+const onSubmit = async () => {
+  const ok = await login(form.username, form.password);
+
+  if (ok) {
+    router.push("/products");
+  }
 };
 </script>
 
@@ -22,7 +29,6 @@ const onSubmit = () => {
       class="w-full md:w-1/2 bg-amber-600 p-8 relative flex items-center justify-center order-first md:order-last"
     >
       <div class="w-full max-w-md text-white text-center">
-        <!-- Bisa diganti dengan Lottie nanti -->
         <LottieAnimation :animationData="shopAnimation" :loop="true" />
       </div>
     </div>
